@@ -1,0 +1,8 @@
+rootProject.name='mebook'
+include ':app'
+include ':common'
+include ':base'
+include ':bookrack'
+include ':bookstore'
+include ':login'
+include ':main'

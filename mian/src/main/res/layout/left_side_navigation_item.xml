@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.lantian.base.utils.MongolTextView
+        android:id="@+id/mongol_text"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:background="@color/grey"
+        android:textColor="@color/blue"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"/>
+</LinearLayout>

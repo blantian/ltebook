@@ -1,0 +1,45 @@
+ext {
+    isApplication = true
+    android = [
+            applicationId    : 'com.lantian.mebook',
+            compileSdkVersion: 29,
+            buildToolsVersion: '29.0.0',
+            minSdkVersion    : 16,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : '1.0'
+    ]
+    depsVersion = [
+            appcompat           : '1.1.0',
+            constraintlayout    : '1.1.3',
+            junit               : '4.12',
+            extjunit            : '1.1.1',
+            espressocore        : '3.2.0',
+            greendao            : '3.3.0',
+            okhttp              : '4.7.2',
+            okhttp3mockwebserver: '4.7.2',
+            retrofit            : '2.9.0',
+            rxjava              : '3.0.4',
+            rxlifecycle         : '2.2.2',
+            logginginterceptor  : '4.7.2',
+    ]
+
+    depsLibs = [
+            appcompat            : "androidx.appcompat:appcompat:${depsVersion.appcompat}",
+            constraintlayout     : "androidx.constraintlayout:constraintlayout:${depsVersion.constraintlayout}",
+            junit                : "junit:junit:${depsVersion.junit}",
+            extjunit             : "androidx.test.ext:junit:${depsVersion.extjunit}",
+            espressocore         : "androidx.test.espresso:espresso-core:${depsVersion.espressocore}",
+            greendao             : "org.greenrobot:greendao:${depsVersion.greendao}",
+            okhttp               : "com.squareup.okhttp3:okhttp:${depsVersion.okhttp}",
+            okhttp3mockwebserver : "com.squareup.okhttp3:mockwebserver:${depsVersion.okhttp3mockwebserver}",
+            retrofit             : "com.squareup.retrofit2:retrofit:${depsVersion.retrofit}",
+            rxjava               : "io.reactivex.rxjava3:rxjava:${depsVersion.rxjava}",
+            rxlifecycle          : "com.trello.rxlifecycle2:rxlifecycle:${depsVersion.rxlifecycle}",
+            rxlifecyclecomponents: "com.trello.rxlifecycle2:rxlifecycle-components:${depsVersion.rxlifecycle}",
+            logginginterceptor   : "com.squareup.okhttp3:logging-interceptor:${depsVersion.logginginterceptor}",
+            convertergson        : "com.squareup.retrofit2:converter-gson:${depsVersion.retrofit}",
+            adapterrxjava2       : "com.squareup.retrofit2:adapter-rxjava2:${depsVersion.retrofit}"
+
+    ]
+}

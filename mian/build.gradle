@@ -1,0 +1,55 @@
+if (rootProject.ext.isApplication) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+android {
+    compileSdkVersion this.rootProject.android.compileSdkVersion
+    buildToolsVersion this.rootProject.android.buildToolsVersion
+
+    defaultConfig {
+        if (rootProject.ext.isApplication) {
+            applicationId this.rootProject.android.applicationId
+        } else {
+
+        }
+        minSdkVersion this.rootProject.android.minSdkVersion
+        targetSdkVersion this.rootProject.android.targetSdkVersion
+        versionCode this.rootProject.android.versionCode
+        versionName this.rootProject.android.versionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets{
+        main{
+            if (rootProject.ext.isApplication){
+                manifest.srcFile'src/main/debug/AndroidManifest.xml'
+            }else {
+                manifest.srcFile'src/main/release/AndroidManifest.xml'
+                java{
+                    exclude'debug/**'
+                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':base')
+
+}

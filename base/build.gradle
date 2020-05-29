@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+android {
+    compileSdkVersion this.rootProject.android.compileSdkVersion
+    buildToolsVersion this.rootProject.android.buildToolsVersion
+    defaultConfig {
+        minSdkVersion this.rootProject.android.minSdkVersion
+        targetSdkVersion this.rootProject.android.targetSdkVersion
+        versionCode this.rootProject.android.versionCode
+        versionName this.rootProject.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+            }
+        }
+        consumerProguardFiles 'consumer-rules.pro'
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //防止编译的时候oom、GC
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation this.rootProject.depsLibs.appcompat
+    testImplementation this.rootProject.depsLibs.junit
+    androidTestImplementation this.rootProject.depsLibs.extjunit
+    androidTestImplementation this.rootProject.depsLibs.espressocore
+    api this.rootProject.depsLibs.okhttp
+    api this.rootProject.depsLibs.okhttp3mockwebserver
+    api this.rootProject.depsLibs.logginginterceptor
+    api this.rootProject.depsLibs.retrofit
+    api this.rootProject.depsLibs.convertergson
+    api this.rootProject.depsLibs.adapterrxjava2
+    api this.rootProject.depsLibs.rxjava
+    api this.rootProject.depsLibs.greendao // add library
+    api this.rootProject.depsLibs.rxlifecycle
+    api this.rootProject.depsLibs.rxlifecyclecomponents
+    api 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    api 'com.google.android.material:material:1.1.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'androidx.vectordrawable:vectordrawable:1.1.0'
+    api 'androidx.navigation:navigation-fragment:2.2.2'
+    api 'androidx.navigation:navigation-ui:2.2.2'
+    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    api 'org.greenrobot:eventbus:3.2.0'
+    api 'com.alibaba:fastjson:1.2.68'
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    api 'com.android.support:multidex:1.0.3'
+    api 'q.rorbin:VerticalTabLayout:1.2.5'
+
+}

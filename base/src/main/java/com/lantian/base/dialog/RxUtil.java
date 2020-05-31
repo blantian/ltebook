@@ -2,6 +2,7 @@ package com.lantian.base.dialog;
 
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.trello.rxlifecycle2.components.support.RxFragment;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
@@ -19,7 +20,7 @@ public class RxUtil {
      * @param showLoading 是否显示Loading
      * @return 转换后的ObservableTransformer
      */
-    public static <T> ObservableTransformer<T, T> rxSchedulerHelper(final RxFragmentActivity activity, final boolean showLoading) {
+    public static <T> ObservableTransformer<T, T> rxSchedulerHelper(final RxAppCompatActivity activity, final boolean showLoading) {
         if (activity == null) {
             return rxSchedulerHelper();
         }

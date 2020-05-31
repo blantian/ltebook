@@ -9,12 +9,13 @@ import androidx.annotation.Nullable;
 import com.lantian.base.utils.ActivityManagerUtil;
 import com.lantian.base.utils.StatusBarUtil;
 import com.lantian.base.utils.ToastUtils;
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.trello.rxlifecycle2.components.support.RxFragmentActivity;
 
 /**
  * Created by Sherlock·Holmes on 2020/5/23
  */
-public abstract class BaseActivity extends RxFragmentActivity {
+public abstract class BaseActivity extends RxAppCompatActivity {
     protected ActivityManagerUtil appManager = ActivityManagerUtil.getAppManager();
 
     @Override

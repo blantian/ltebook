@@ -2,6 +2,7 @@ package com.lantian.base.net.retrofit;
 
 
 import com.google.gson.JsonParseException;
+import com.lantian.base.common.BaseResponse;
 import com.lantian.base.net.retrofit.exception.NoDataExceptionException;
 import com.lantian.base.net.retrofit.exception.ServerResponseException;
 import com.lantian.base.utils.LogUtils;

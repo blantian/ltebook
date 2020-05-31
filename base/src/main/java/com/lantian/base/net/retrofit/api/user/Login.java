@@ -1,4 +1,4 @@
-package com.lantian.base.net.retrofit.api;
+package com.lantian.base.net.retrofit.api.user;
 
 import com.google.gson.internal.LinkedTreeMap;
 import com.lantian.base.common.BaseResponse;
@@ -16,7 +16,7 @@ import retrofit2.http.POST;
 /**
  * Created by Sherlock·Holmes on 2020/5/27
  */
-public interface Loginapi {
+public interface Login {
 
     @FormUrlEncoded
     @POST("loginPost/")

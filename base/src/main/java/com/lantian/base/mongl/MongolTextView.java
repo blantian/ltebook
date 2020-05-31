@@ -30,7 +30,7 @@ import androidx.annotation.ColorInt;
 
 public class MongolTextView extends View implements ViewTreeObserver.OnPreDrawListener {
 
-    private final static int DEFAULT_FONT_SIZE_SP = 20;
+    private final static int DEFAULT_FONT_SIZE_SP = 30;
     private static final int STICKY_WIDTH_UNDEFINED = -1;
 
     private static final int OLD_WIDTH_SPEC_INDEX = 0;
@@ -76,6 +76,8 @@ public class MongolTextView extends View implements ViewTreeObserver.OnPreDrawLi
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
+
+
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MongolTextView, defStyleAttr, 0);

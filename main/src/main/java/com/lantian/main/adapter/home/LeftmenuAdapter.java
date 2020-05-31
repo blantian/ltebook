@@ -22,14 +22,7 @@ public class LeftmenuAdapter extends BaseQuickAdapter<LeftMenuBean, BaseViewHold
 
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, LeftMenuBean leftMenuBean) {
-        baseViewHolder.setText(R.id.mongl,leftMenuBean.getName());
-
 
     }
 
-
-    @Override
-    protected void convert(@NotNull BaseViewHolder holder, LeftMenuBean item, @NotNull List<?> payloads) {
-        super.convert(holder, item, payloads);
-    }
 }

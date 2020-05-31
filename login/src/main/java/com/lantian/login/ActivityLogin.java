@@ -2,7 +2,6 @@ package com.lantian.login;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,13 +14,8 @@ import com.lantian.base.common.bean.LoginBean;
 import com.lantian.base.dialog.RxUtil;
 import com.lantian.base.net.retrofit.ResponseObserver;
 import com.lantian.base.net.retrofit.RetrofitHelper;
-import com.lantian.base.net.retrofit.api.Loginapi;
 
-import org.greenrobot.eventbus.EventBus;
-
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.observers.ResourceObserver;
 import io.reactivex.schedulers.Schedulers;
 
 public class ActivityLogin extends BaseActivity implements View.OnClickListener {
@@ -45,7 +39,7 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
 
 
     private void initView() {
-        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
         mPhone = (EditText) findViewById(R.id.phone);
         mPassword = (EditText) findViewById(R.id.password);
         mLogin = (Button) findViewById(R.id.login);
@@ -68,9 +62,7 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
 
 
     private void login() {
-        LoginBean loginBean = new LoginBean(mPhone.getText().toString(),mPassword.getText().toString());
-        String json = JSON.toJSONString(loginBean);
-        RetrofitHelper.getLoginapi()
+        RetrofitHelper.getlogin()
                 .loginSystem(mPhone.getText().toString(),mPassword.getText().toString())
                 .compose(RxUtil.rxSchedulerHelper(this,true))
                 .subscribeOn(Schedulers.io())
@@ -103,6 +95,6 @@ public class ActivityLogin extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+       // EventBus.getDefault().unregister(this);
     }
 }
